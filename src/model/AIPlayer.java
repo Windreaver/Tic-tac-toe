@@ -43,7 +43,7 @@ public class AIPlayer extends Player {
                     }
                 }
             }
-
+//comment to test IDEA commit
 //            for (int i = 0; i < field.getFieldSize(); i++) {
 //                for (int j = 0; j <field.getFieldSize(); j++) {
 //                    if(field.getToken(i,j) == Field.DEFAULT_CHAR){
