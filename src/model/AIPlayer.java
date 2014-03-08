@@ -13,7 +13,8 @@ import java.util.Random;
  */
 public class AIPlayer extends Player {
 
-    public boolean makeMove(Field field, View view){
+    public Position makeMove(Field field, View view){
+        Position position = new Position();
         if (field.hasEmptyPosition()){
             int x, y, dir;
 
@@ -22,8 +23,8 @@ public class AIPlayer extends Player {
                     if(field.getToken(i,j) == Field.DEFAULT_CHAR){
                         dir = field.getDirectionThatHaveXTokenInLine(i, j, field.getNumberOfTokenToWin() - 1);
                         if (dir != -1){
-                            field.setToken(i, j, getToken());
-                            return true;
+                            position.setPosition(i, j);
+                            return position;
                         }
                     }
                 }
@@ -35,8 +36,8 @@ public class AIPlayer extends Player {
                         dir = field.getDirectionThatHaveXTokenInLine(i, j, field.getNumberOfTokenToWin() - 2);
                         if (dir != -1){
                             if(checkForDefaultTokenInDirOnDelta(field, i, j, dir, field.getNumberOfTokenToWin() - 2)){
-                                field.setToken(i, j, getToken());
-                                return true;
+                                position.setPosition(i, j);
+                                return position;
                             }
                         }
                     }
@@ -48,8 +49,8 @@ public class AIPlayer extends Player {
 //                    if(field.getToken(i,j) == Field.DEFAULT_CHAR){
 //                        dir = field.getDirectionThatHaveXTokenInLine(i, j, field.getNumberOfTokenToWin() - 2);
 //                        if (dir != -1){
-//                            field.setToken(i, j, getToken());
-//                            return true;
+//                            position.setPosition(i, j);
+//                            return position;
 //                        }
 //                    }
 //                }
@@ -61,10 +62,10 @@ public class AIPlayer extends Player {
                 y = rand.nextInt(field.getFieldSize());
             } while (!field.placeIsEmpty(x,y));
 
-            field.setToken(x, y, getToken());
-            return true;
+            position.setPosition(x, y);
+            return position;
         }
-        return false;
+        return null;
     }
 
     private boolean checkForDefaultTokenInDirOnDelta(Field field, int i, int j, int dir, int delta) {

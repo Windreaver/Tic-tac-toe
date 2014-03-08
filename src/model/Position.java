@@ -8,8 +8,8 @@ package model;
  * To change this template use File | Settings | File Templates
  */
 public class Position {
-    int x;
-    int y;
+    public int x;
+    public int y;
 
     public void setPosition(int x, int y){
         this.x = x;

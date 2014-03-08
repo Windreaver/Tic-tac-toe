@@ -13,9 +13,8 @@ public class Player {
 
     private char myToken;
 
-    public boolean makeMove(Field field, View view){
-        System.out.println("model.Player " + myToken + " make some move");
-        return true;
+    public Position makeMove(Field field, View view){
+        return null;
     }
 
     public void setToken(char myToken) {

@@ -10,12 +10,12 @@ import view.*;
  * To change this template use File | Settings | File Templates
  */
 public class HumanPlayer extends Player {
-    public boolean makeMove(Field field, View view) {
+
+    public Position makeMove(Field field, View view) {
         if (field.hasEmptyPosition()){
             Position position = view.readTokenPosition(this, field);
-            field.setToken(position.x, position.y, getToken());
-            return true;
+            return position;
         }
-        return false;
+        return null;
     }
 }
