@@ -1,6 +1,5 @@
 package controllers;
 
-import javafx.geometry.Pos;
 import model.*;
 import view.*;
 
@@ -43,7 +42,7 @@ public class Controller implements Runnable {
         }
         chooseActivePlayer(player1, player2, player3);
         view.displayWhoPlayFirst(activePlayer);
-        Position position = new Position();
+        Position position;
         while(true) {
             view.displayWhatPlayersTurnNow(activePlayer);
             view.drawField(field);
@@ -51,9 +50,8 @@ public class Controller implements Runnable {
             if(position == null){
                 view.displayNoSide();
                 break;
-            } else {
-                field.setToken(position.x, position.y, activePlayer.getToken());
             }
+            field.setToken(position.x, position.y, activePlayer.getToken());
             if(field.isOver()){
                 view.drawField(field);
                 view.displayWinner(activePlayer);
