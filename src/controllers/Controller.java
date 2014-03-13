@@ -1,7 +1,9 @@
 package controllers;
 
-import model.*;
-import view.*;
+import model.Field;
+import model.Player;
+import model.Position;
+import view.View;
 
 import java.util.Random;
 

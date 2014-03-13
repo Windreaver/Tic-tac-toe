@@ -1,6 +1,6 @@
 package model;
 
-import view.*;
+import view.View;
 
 import java.util.Random;
 

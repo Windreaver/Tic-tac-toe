@@ -1,6 +1,6 @@
 package model;
 
-import view.*;
+import view.View;
 
 /**
  * Created with IntelliJ IDEA

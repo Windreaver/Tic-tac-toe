@@ -1,5 +1,8 @@
 import controllers.Controller;
-import model.*;
+import model.AIPlayer;
+import model.Field;
+import model.HumanPlayer;
+import model.Player;
 import view.FrameView;
 import view.View;
 

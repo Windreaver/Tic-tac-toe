@@ -2,6 +2,7 @@ package view;
 
 import controllers.Controller;
 import model.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -41,7 +42,7 @@ public class FrameView extends JFrame implements View {
 
     private Field field;
 
-    JButton player1Button, player2Button, player3Button;
+    private JButton player1Button, player2Button, player3Button;
 
     JLabel pl1Label, pl2Label, pl3Label;
 
@@ -60,7 +61,7 @@ public class FrameView extends JFrame implements View {
         setTitle("Tic-tac-toe");
         setSize(700, 600);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         JPanel fieldPanel, menuPanel;
 
         menuPanel = new JPanel();
