@@ -1,5 +1,5 @@
 *.iml
-out/
+*.class
 .idea/
 
 # Package Files #
