@@ -1,6 +1,6 @@
 package model;
 
-import view.*;
+import view.View;
 
 /**
  * Created with IntelliJ IDEA
@@ -13,7 +13,7 @@ public class Player {
 
     private char myToken;
 
-    public Position makeMove(Field field, View view){
+    public Position makeMove(Field field, View view) {
         return null;
     }
 

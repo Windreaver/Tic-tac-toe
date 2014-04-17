@@ -1,6 +1,6 @@
 package model;
 
-import view.*;
+import view.View;
 
 /**
  * Created with IntelliJ IDEA
@@ -12,7 +12,7 @@ import view.*;
 public class HumanPlayer extends Player {
 
     public Position makeMove(Field field, View view) {
-        if (field.hasEmptyPosition()){
+        if (field.hasEmptyPosition()) {
             Position position = view.readTokenPosition(this, field);
             return position;
         }

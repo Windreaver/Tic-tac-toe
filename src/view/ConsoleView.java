@@ -1,6 +1,8 @@
 package view;
 
-import model.*;
+import model.Field;
+import model.Player;
+import model.Position;
 
 import java.util.Scanner;
 
@@ -24,19 +26,19 @@ public class ConsoleView implements View {
     @Override
     public void drawField(Field field) {
         System.out.print(" ");
-        for(int i=1; i<=field.getFieldSize();i++){
+        for (int i = 1; i <= field.getFieldSize(); i++) {
             System.out.print("  " + i);
         }
         System.out.println();
-        for(int i=0;i<field.getFieldSize();i++){
+        for (int i = 0; i < field.getFieldSize(); i++) {
             drawFieldRow(field, i);
         }
         System.out.println();
     }
 
-    private void drawFieldRow (Field field, int row){
+    private void drawFieldRow(Field field, int row) {
         System.out.print(row + 1 + " ");
-        for(int j=0;j<field.getFieldSize();j++){
+        for (int j = 0; j < field.getFieldSize(); j++) {
             System.out.print("[" + field.getToken(row, j) + "]");
         }
         System.out.println();
@@ -67,8 +69,8 @@ public class ConsoleView implements View {
         System.out.println(player.getToken() + " type your move like [<X position> <Y position>]");
         Scanner scanner = new Scanner(System.in);
         String tmp = scanner.nextLine();
-        if( (tmp.toCharArray().length < 3) || (tmp.charAt(2) - 49 >= 0 && tmp.charAt(2) - 49 < field.getFieldSize() && tmp.charAt(0) - 49 >= 0 && tmp.charAt(0) - 49 < field.getFieldSize())){
-            if (field.getToken(tmp.charAt(2) - 49,tmp.charAt(0) - 49) == Field.DEFAULT_CHAR){
+        if ((tmp.toCharArray().length < 3) || (tmp.charAt(2) - 49 >= 0 && tmp.charAt(2) - 49 < field.getFieldSize() && tmp.charAt(0) - 49 >= 0 && tmp.charAt(0) - 49 < field.getFieldSize())) {
+            if (field.getToken(tmp.charAt(2) - 49, tmp.charAt(0) - 49) == Field.DEFAULT_CHAR) {
                 position = new Position();
                 position.setPosition(tmp.charAt(2) - 49, tmp.charAt(0) - 49);
             } else {

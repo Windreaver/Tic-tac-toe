@@ -2,6 +2,7 @@ package view;
 
 import controllers.Controller;
 import model.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -45,7 +46,7 @@ public class FrameView extends JFrame implements View {
 
     JLabel pl1Label, pl2Label, pl3Label;
 
-    public FrameView(Player player1, Player player2, Player player3, Field field){
+    public FrameView(Player player1, Player player2, Player player3, Field field) {
         this.player1 = player1;
         this.player2 = player2;
         this.player3 = player3;
@@ -112,9 +113,9 @@ public class FrameView extends JFrame implements View {
             @Override
             public void adjustmentValueChanged(AdjustmentEvent adjustmentEvent) {
                 newFieldSize = adjustmentEvent.getValue();
-                if (newFieldSize == 3){
+                if (newFieldSize == 3) {
                     newNumberOfTokens = 3;
-                } else if (newFieldSize < 9){
+                } else if (newFieldSize < 9) {
                     newNumberOfTokens = 4;
                 } else {
                     newNumberOfTokens = 5;
@@ -148,14 +149,14 @@ public class FrameView extends JFrame implements View {
 
         buttons = new JButton[field.getFieldSize()][field.getFieldSize()];
 
-        for (int i = 0; i <field.getFieldSize(); i++) {
+        for (int i = 0; i < field.getFieldSize(); i++) {
             for (int j = 0; j < field.getFieldSize(); j++) {
                 buttons[i][j] = new JButton(String.valueOf(Field.DEFAULT_CHAR));
                 buttons[i][j].setName(String.valueOf(100 + i + j * field.getFieldSize()));
                 buttons[i][j].addActionListener(new ActionListener() {
                     @Override
                     synchronized public void actionPerformed(ActionEvent actionEvent) {
-                        int tmp = Integer.valueOf(actionEvent.toString().substring(91,94)) - 100;
+                        int tmp = Integer.valueOf(actionEvent.toString().substring(91, 94)) - 100;
                         X = tmp % field.getFieldSize();
                         Y = tmp / field.getFieldSize();
                         position.go();
@@ -172,30 +173,30 @@ public class FrameView extends JFrame implements View {
 
     }
 
-    private String buttonText(Player player){
-        if (player == null){
+    private String buttonText(Player player) {
+        if (player == null) {
             return "None";
-        } else if (player.getClass().getSimpleName().equals("AIPlayer")){
+        } else if (player.getClass().getSimpleName().equals("AIPlayer")) {
             return "AI";
         }
         return "Human";
     }
 
     private void setNextPlayerOnButtonClick(JButton button) {
-        if (button.getText().equals("None")){
+        if (button.getText().equals("None")) {
             button.setText("Human");
-        } else if (button.getText().equals("Human")){
+        } else if (button.getText().equals("Human")) {
             button.setText("AI");
         } else {
             button.setText("None");
         }
     }
 
-    private Player setNewPlayer(JButton button){
+    private Player setNewPlayer(JButton button) {
         String tmp = button.getText();
-        if (tmp.equals("AI")){
+        if (tmp.equals("AI")) {
             return new AIPlayer();
-        } else if (tmp.equals("Human")){
+        } else if (tmp.equals("Human")) {
             return new HumanPlayer();
         }
         return null;
@@ -208,7 +209,7 @@ public class FrameView extends JFrame implements View {
 
     @Override
     public void drawField(Field field) {
-        for (int i = 0; i <field.getFieldSize(); i++) {
+        for (int i = 0; i < field.getFieldSize(); i++) {
             for (int j = 0; j < field.getFieldSize(); j++) {
                 buttons[i][j].setText(String.valueOf(field.getToken(i, j)));
             }
@@ -220,13 +221,13 @@ public class FrameView extends JFrame implements View {
         pl1Label.setEnabled(false);
         pl2Label.setEnabled(false);
         pl3Label.setEnabled(false);
-        if (player.getToken() == 'X'){
+        if (player.getToken() == 'X') {
             pl1Label.setEnabled(true);
         }
-        if (player.getToken() == 'O'){
+        if (player.getToken() == 'O') {
             pl2Label.setEnabled(true);
         }
-        if (player.getToken() == '#'){
+        if (player.getToken() == '#') {
             pl3Label.setEnabled(true);
         }
     }
@@ -245,7 +246,7 @@ public class FrameView extends JFrame implements View {
     @Override
     synchronized public Position readTokenPosition(Player player, Field field) {
         position.stop();
-        if (field.getToken(X, Y) != Field.DEFAULT_CHAR){
+        if (field.getToken(X, Y) != Field.DEFAULT_CHAR) {
             //Message that position is busy!!!
             readTokenPosition(player, field);
         }
@@ -253,7 +254,7 @@ public class FrameView extends JFrame implements View {
         return position;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Player player1 = new AIPlayer();
         Player player2 = new AIPlayer();
         Player player3 = new HumanPlayer();
