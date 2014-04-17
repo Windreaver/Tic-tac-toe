@@ -1,5 +1,8 @@
 import controllers.Controller;
-import model.*;
+import model.AIPlayer;
+import model.Field;
+import model.HumanPlayer;
+import model.Player;
 import view.FrameView;
 import view.View;
 
@@ -14,7 +17,7 @@ import java.util.concurrent.Executors;
  * To change this template use File | Settings | File Templates
  */
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Player player1 = new AIPlayer();
         Player player2 = new AIPlayer();
         Player player3 = new HumanPlayer();

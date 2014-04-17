@@ -1,6 +1,8 @@
 package view;
 
-import model.*;
+import model.Field;
+import model.Player;
+import model.Position;
 
 /**
  * Created with IntelliJ IDEA
